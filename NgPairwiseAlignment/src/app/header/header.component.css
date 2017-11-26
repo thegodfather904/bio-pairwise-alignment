@@ -1,0 +1,34 @@
+.header-container {
+  background-image: url("../../assets/dna-background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+}
+
+.header-content {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.75;
+}
+
+.title-cntr {
+  width: 545px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 168px;
+}
+
+.title-cntr div {
+  color: #fff;
+}
+
+.title {
+    font-size: 58px;
+}
+
+.description {
+    font-size: 20px;
+    margin-top: 12px;
+}
