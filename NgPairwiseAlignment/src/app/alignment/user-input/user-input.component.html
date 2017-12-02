@@ -1,14 +1,25 @@
 <div class="user-input-cntr">
-
-  <div class="sequence-wrapper">
-    <label for="sequence1">Sequence 1</label>
-    <textarea id="sequence1" pInputTextArea [(ngModel)]="sequence1"></textarea>
-    <p>{{sequence1}}</p>
+  <div>{{ alignmentType }}</div>
+  <div class="sequence-cntr">
+    <div class="sequence-wrapper">
+      <label for="sequence1">Sequence 1</label>
+      <textarea id="sequence1" pInputTextArea [(ngModel)]="sequence1"></textarea>
+      <p>{{sequence1}}</p>
+    </div>
+    <div class="sequence-wrapper">
+      <label for="sequence2">Sequence 2</label>
+      <textarea id="sequence2" pInputTextArea [(ngModel)]="sequence2"></textarea>
+      <p>{{sequence2}}</p>
+    </div>
   </div>
-  <div class="sequence-wrapper">
-    <label for="sequence2">Sequence 2</label>
-    <textarea id="sequence2" pInputTextArea [(ngModel)]="sequence2"></textarea>
-    <p>{{sequence2}}</p>
+
+  <p-fieldset legend="Additional Options" [toggleable]="true" 
+  [collapsed]="true" styleClass="more-options">
+      Content
+  </p-fieldset>
+
+  <div class="align-wrapper">
+    <button pButton type="button" label="Align Sequences"></button>
   </div>
 
 </div>

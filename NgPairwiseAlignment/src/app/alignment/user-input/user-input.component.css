@@ -1,25 +1,66 @@
 .user-input-cntr {
-    padding: 20px;
+  padding: 20px;
 }
 
 label {
-    display: block;
-    padding: 8px 0;
+  display: block;
+  padding: 8px 0;
 }
 
 .sequence-wrapper {
-    width: 50%;
-    float: left;
-    padding: 12px;
+  width: 50%;
+  float: left;
+  padding: 12px;
+}
+
+.sequence-cntr {
+    overflow: hidden;
+}
+
+.sequence-cntr .sequence-wrapper:first-child {
+  padding-left: 0;
+}
+
+.sequence-cntr .sequence-wrapper:last-child {
+  padding-right: 0;
 }
 
 .sequence-wrapper label {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .sequence-wrapper textarea {
-    width: 100%;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #c0c2c7;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #c0c2c7;
+}
+
+.align-wrapper {
+  clear: left;
+  width: 25%;
+  margin: 0 auto;
+}
+
+.align-wrapper button {
+  width: 100%;
+  height: 60px;
+}
+
+.more-options {
+    border: none;
+    padding: 0;
+}
+
+fieldset.more-options {
+    margin: 0 0 20px 0;
+}
+
+.more-options legend {
+  border: none;
+}
+
+.more-options .ui-fieldset-legend a {
+    text-decoration: none;
+    padding: 8px 0;
 }
