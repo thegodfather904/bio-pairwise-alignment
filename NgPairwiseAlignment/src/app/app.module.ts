@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {ButtonModule} from 'primeng/primeng';
+import {ButtonModule, InputTextarea} from 'primeng/primeng';
+import {InputTextareaModule} from 'primeng/primeng';
 
 
 import { AppComponent } from './app.component';
@@ -19,7 +20,8 @@ import { UserInputComponent } from './alignment/user-input/user-input.component'
   imports: [
     BrowserModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

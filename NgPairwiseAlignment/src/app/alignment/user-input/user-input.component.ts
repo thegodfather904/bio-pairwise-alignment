@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserInputComponent implements OnInit {
 
   sequence1: string;
+  sequence2: string;
 
   constructor() { }
 

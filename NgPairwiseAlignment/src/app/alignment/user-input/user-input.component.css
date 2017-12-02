@@ -1,0 +1,25 @@
+.user-input-cntr {
+    padding: 20px;
+}
+
+label {
+    display: block;
+    padding: 8px 0;
+}
+
+.sequence-wrapper {
+    width: 50%;
+    float: left;
+    padding: 12px;
+}
+
+.sequence-wrapper label {
+    font-size: 24px;
+}
+
+.sequence-wrapper textarea {
+    width: 100%;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #c0c2c7;
+}

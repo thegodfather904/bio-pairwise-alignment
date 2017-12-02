@@ -1,4 +1,14 @@
-<label for="sequence1">Sequence 1</label>
-<textarea id="sequence1" cols="30" rows="10" [(ngModel)]="sequence1"></textarea>
-<p>{{sequence1}}</p>
-<button pButton type="button" label="Click" class="ui-button-success"></button>
+<div class="user-input-cntr">
+
+  <div class="sequence-wrapper">
+    <label for="sequence1">Sequence 1</label>
+    <textarea id="sequence1" pInputTextArea [(ngModel)]="sequence1"></textarea>
+    <p>{{sequence1}}</p>
+  </div>
+  <div class="sequence-wrapper">
+    <label for="sequence2">Sequence 2</label>
+    <textarea id="sequence2" pInputTextArea [(ngModel)]="sequence2"></textarea>
+    <p>{{sequence2}}</p>
+  </div>
+
+</div>
