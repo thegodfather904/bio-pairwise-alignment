@@ -48,12 +48,14 @@ label {
 }
 
 .more-options {
-    border: none;
     padding: 0;
 }
 
 fieldset.more-options {
     margin: 0 0 20px 0;
+    border: none;
+    border-bottom: 1px solid #c0c2c7;
+    padding-bottom: 20px;
 }
 
 .more-options legend {
@@ -63,4 +65,13 @@ fieldset.more-options {
 .more-options .ui-fieldset-legend a {
     text-decoration: none;
     padding: 8px 0;
+}
+
+.option {
+    float: left;
+    padding-right: 50px;
+}
+
+.fieldset-inner {
+    padding: 0 18px 0 18px;
 }

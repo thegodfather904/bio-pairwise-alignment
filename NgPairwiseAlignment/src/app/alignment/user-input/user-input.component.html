@@ -13,9 +13,19 @@
     </div>
   </div>
 
-  <p-fieldset legend="Additional Options" [toggleable]="true" 
-  [collapsed]="true" styleClass="more-options">
-      Content
+  <p-fieldset legend="Additional Options" [toggleable]="true" [collapsed]="true" styleClass="more-options">
+    <div class="fieldset-inner">
+      <div class="option">
+        <label for="alignmentType">Alignment Type</label>
+        <p-dropdown id="alignmentType" [options]="alignmentOptions"
+         [(ngModel)]="alignmentType"></p-dropdown>
+      </div>
+      <div class="option">
+        <label for="gapPenalty">Gap Penalty</label>
+        <input id="gapPenalty" type="text" pInputText [(ngModel)]="gapPenalty">
+      </div>
+    </div>
+
   </p-fieldset>
 
   <div class="align-wrapper">

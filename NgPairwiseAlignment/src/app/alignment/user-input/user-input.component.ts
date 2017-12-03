@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SelectItem } from 'primeng/primeng';
 
 @Component({
   selector: 'app-user-input',
@@ -8,13 +9,22 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class UserInputComponent implements OnInit {
 
-  alignmentType = 'Global Alignment';
   sequence1: string;
   sequence2: string;
 
-  constructor() { }
+  alignmentOptions: SelectItem[];
+  alignmentType = 'Global';
+  gapPenalty = -3;
 
-  ngOnInit() {
+  constructor() {
+    this.alignmentOptions = [
+      {label: 'Global', value: 'Global'},
+      {label: 'Local', value: 'Local'},
+      {label: 'Dovetail', value: 'Dovetail'},
+      {label: 'Banded Global', value: 'Banded Global'}
+    ];
   }
+
+  ngOnInit() {}
 
 }

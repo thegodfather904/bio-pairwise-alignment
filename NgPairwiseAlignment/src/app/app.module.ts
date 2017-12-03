@@ -5,6 +5,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule, InputTextarea} from 'primeng/primeng';
 import {InputTextareaModule} from 'primeng/primeng';
 import {FieldsetModule} from 'primeng/primeng';
+import {DropdownModule} from 'primeng/primeng';
+import {InputTextModule} from 'primeng/primeng';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +27,9 @@ import { UserInputComponent } from './alignment/user-input/user-input.component'
     BrowserAnimationsModule,
     ButtonModule,
     InputTextareaModule,
-    FieldsetModule
+    FieldsetModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
