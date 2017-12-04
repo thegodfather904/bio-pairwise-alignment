@@ -1,2 +1,10 @@
-<p>{{ test }}</p>
-<p>{{ visualizerData.sequence1 }}</p>
+<div class="visualizer-cntr">
+  <div class="score-cntr">
+    Score: {{ vd.score }}
+  </div>
+  <div class="matrix-cntr">
+    <div class="matrix-element" [ngClass]= "me.styleClass" *ngFor="let me of vd.alignmentMatrix">
+      {{ me.value }}
+    </div>
+  </div>
+</div>

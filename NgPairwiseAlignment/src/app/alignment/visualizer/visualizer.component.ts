@@ -9,10 +9,8 @@ import { VisualizerData } from '../../shared/visualizer-data.model';
 })
 export class VisualizerComponent implements OnInit {
 
-  test = 'test';
-
   @Input()
-  visualizerData: VisualizerData;
+  vd: VisualizerData;
 
   constructor() { }
 
