@@ -1,5 +1,6 @@
 .visualizer-cntr{
     padding: 20px;
+    overflow: hidden;
 }
 
 .score-cntr {
@@ -9,14 +10,25 @@
 .matrix-element {
     float: left;
     border: 1px solid #c0c2c7;
-    width: 40px;
-    height: 40px;
+    padding: 20px 0;
+    text-align: center;
 }
 
 .matrix-element.start-value {
     clear: left;
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    padding-right: 16px;
 }
 
 .matrix-element.sequence-value {
     border: none;
+}
+
+.matrix-element.sequence-value.first-row {
+    height: auto;
+    font-style: italic;
+    font-weight: bold;
+    padding-bottom: 16px;
 }

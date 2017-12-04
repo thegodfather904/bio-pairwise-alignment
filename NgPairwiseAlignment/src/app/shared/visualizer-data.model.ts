@@ -6,6 +6,7 @@ export class VisualizerData {
     public score: number;
     public gapPenalty: number;
     public alignmentMatrix: MatrixElement[];
+    public matrixElementWidth = '25%';
 
     constructor() {}
 }
