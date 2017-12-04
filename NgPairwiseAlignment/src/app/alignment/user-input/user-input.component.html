@@ -3,13 +3,11 @@
   <div class="sequence-cntr">
     <div class="sequence-wrapper">
       <label for="sequence1">Sequence 1</label>
-      <textarea id="sequence1" pInputTextArea [(ngModel)]="sequence1"></textarea>
-      <p>{{sequence1}}</p>
+      <textarea id="sequence1" pInputTextArea [(ngModel)]="userInput.sequence1"></textarea>
     </div>
     <div class="sequence-wrapper">
       <label for="sequence2">Sequence 2</label>
-      <textarea id="sequence2" pInputTextArea [(ngModel)]="sequence2"></textarea>
-      <p>{{sequence2}}</p>
+      <textarea id="sequence2" pInputTextArea [(ngModel)]="userInput.sequence2"></textarea>
     </div>
   </div>
 
@@ -18,18 +16,18 @@
       <div class="option">
         <label for="alignmentType">Alignment Type</label>
         <p-dropdown id="alignmentType" [options]="alignmentOptions"
-         [(ngModel)]="alignmentType"></p-dropdown>
+         [(ngModel)]="userInput.alignmentType"></p-dropdown>
       </div>
       <div class="option">
         <label for="gapPenalty">Gap Penalty</label>
-        <input id="gapPenalty" type="text" pInputText [(ngModel)]="gapPenalty">
+        <input id="gapPenalty" type="text" pInputText [(ngModel)]="userInput.gapPenalty">
       </div>
     </div>
 
   </p-fieldset>
 
   <div class="align-wrapper">
-    <button pButton type="button" label="Align Sequences"></button>
+    <button pButton type="button" label="Align Sequences" (click)="onAlignSequences()"></button>
   </div>
 
 </div>

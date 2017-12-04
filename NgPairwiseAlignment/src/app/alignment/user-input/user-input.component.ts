@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { UserInput } from './../../shared/userInput.model';
+import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { SelectItem } from 'primeng/primeng';
+import { AlignmentOptions } from '../../shared/alignment-options.enum';
 
 @Component({
   selector: 'app-user-input',
@@ -9,22 +11,30 @@ import { SelectItem } from 'primeng/primeng';
 })
 export class UserInputComponent implements OnInit {
 
-  sequence1: string;
-  sequence2: string;
-
+  userInput = new UserInput();
   alignmentOptions: SelectItem[];
-  alignmentType = 'Global';
-  gapPenalty = -3;
+
+  @Output()
+  alignSequences = new EventEmitter<UserInput>();
 
   constructor() {
-    this.alignmentOptions = [
-      {label: 'Global', value: 'Global'},
-      {label: 'Local', value: 'Local'},
-      {label: 'Dovetail', value: 'Dovetail'},
-      {label: 'Banded Global', value: 'Banded Global'}
-    ];
+    this.buildAlignmentOptionsList();
   }
 
   ngOnInit() {}
+
+  buildAlignmentOptionsList() {
+    this.alignmentOptions = [
+      {label: AlignmentOptions.GLOBAL, value: AlignmentOptions.GLOBAL},
+      {label: AlignmentOptions.LOCAL, value: AlignmentOptions.LOCAL},
+      {label: AlignmentOptions.DOVETAIL, value: AlignmentOptions.DOVETAIL},
+      {label: AlignmentOptions.BANDED, value: AlignmentOptions.BANDED}
+    ];
+  }
+
+  onAlignSequences() {
+    console.log('here');
+    this.alignSequences.emit(this.userInput);
+  }
 
 }

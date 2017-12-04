@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInput } from '../shared/userInput.model';
 
 @Component({
   selector: 'app-alignment',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlignmentComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onAlignSequences(userInput: UserInput) {
+    console.log(userInput.sequence1);
   }
 
 }
