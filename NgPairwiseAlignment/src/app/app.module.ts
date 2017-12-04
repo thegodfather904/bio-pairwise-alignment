@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AlignmentComponent } from './alignment/alignment.component';
 import { UserInputComponent } from './alignment/user-input/user-input.component';
+import { VisualizerComponent } from './alignment/visualizer/visualizer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AlignmentComponent,
-    UserInputComponent
+    UserInputComponent,
+    VisualizerComponent
   ],
   imports: [
     BrowserModule,

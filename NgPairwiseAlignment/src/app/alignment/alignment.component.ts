@@ -8,12 +8,14 @@ import { UserInput } from '../shared/userInput.model';
 })
 export class AlignmentComponent implements OnInit {
 
+  userInput = new UserInput();
+
   constructor() {}
 
   ngOnInit() {}
 
   onAlignSequences(userInput: UserInput) {
-    console.log(userInput.sequence1);
+    this.userInput = userInput;
   }
 
 }

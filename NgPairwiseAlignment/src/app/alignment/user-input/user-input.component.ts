@@ -33,7 +33,6 @@ export class UserInputComponent implements OnInit {
   }
 
   onAlignSequences() {
-    console.log('here');
     this.alignSequences.emit(this.userInput);
   }
 

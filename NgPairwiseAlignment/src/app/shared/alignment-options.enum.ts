@@ -1,6 +1,6 @@
 export enum AlignmentOptions {
     GLOBAL = 'Global',
     LOCAL = 'Local',
-    DOVETAIL = 'DOVETAIL',
+    DOVETAIL = 'Dovetail',
     BANDED = 'Banded Global'
 }
