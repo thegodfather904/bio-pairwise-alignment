@@ -14,7 +14,7 @@ label {
 }
 
 .sequence-cntr {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .sequence-cntr .sequence-wrapper:first-child {
@@ -42,20 +42,29 @@ label {
   margin: 0 auto;
 }
 
-.align-wrapper button {
+.align-wrapper .ui-widget.ui-button {
   width: 100%;
   height: 60px;
+  background-color: #1abc9c;
+  border: 1px solid #1abc9c;
+  opacity: 0.9;
+}
+
+.align-wrapper .ui-widget.ui-button:enabled:hover {
+  opacity: 1;
+  background-color: #1abc9c;
+  border: 1px solid #1abc9c;
 }
 
 .more-options {
-    padding: 0;
+  padding: 0;
 }
 
 fieldset.more-options {
-    margin: 0 0 20px 0;
-    border: none;
-    border-bottom: 1px solid #c0c2c7;
-    padding-bottom: 20px;
+  margin: 0 0 20px 0;
+  border: none;
+  border-bottom: 1px solid #c0c2c7;
+  padding-bottom: 20px;
 }
 
 .more-options legend {
@@ -63,15 +72,15 @@ fieldset.more-options {
 }
 
 .more-options .ui-fieldset-legend a {
-    text-decoration: none;
-    padding: 8px 0;
+  text-decoration: none;
+  padding: 8px 0;
 }
 
 .option {
-    float: left;
-    padding-right: 50px;
+  float: left;
+  padding-right: 50px;
 }
 
 .fieldset-inner {
-    padding: 0 18px 0 18px;
+  padding: 0 18px 0 18px;
 }
