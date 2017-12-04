@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserInput } from '../../shared/userInput.model';
+import { VisualizerData } from '../../shared/visualizer-data.model';
 
 @Component({
   selector: 'app-visualizer',
@@ -11,7 +12,7 @@ export class VisualizerComponent implements OnInit {
   test = 'test';
 
   @Input()
-  userInput = new UserInput();
+  visualizerData: VisualizerData;
 
   constructor() { }
 
