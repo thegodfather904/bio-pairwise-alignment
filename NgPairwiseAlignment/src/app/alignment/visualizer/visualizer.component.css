@@ -32,3 +32,9 @@
     font-weight: bold;
     padding-bottom: 16px;
 }
+
+.matrix-element.in-alignment {
+    background-color: #336E7B;
+    border: 1px solid #336E7B;
+    color: #fff;
+}

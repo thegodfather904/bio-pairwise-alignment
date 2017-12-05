@@ -14,6 +14,7 @@ export class GlobalAlignment {
         this.plotInit(vd.sequence1.length, vd.sequence2.length, vd.gapPenalty);
 
         this.fillOutPlot(vd);
+        this.backTrackForAlignment(vd.sequence1, vd.sequence2);
 
         vd.score = this.plotMaxScore;
         vd.alignmentMatrix = this.convertPlotMatrixToAlignmentMatrix(vd.sequence1, vd.sequence2);
@@ -119,11 +120,50 @@ export class GlobalAlignment {
         for (let r = 0; r < sequence2.length + 1; r++) {
             alignmentMatrix.push(new MatrixElement(seq2WithFront.charAt(r), 'sequence-value start-value'));
             for (let c = 0; c < sequence1.length + 1; c++) {
-                alignmentMatrix.push(new MatrixElement((this.plotMatrix[r][c].score), ''));
+                alignmentMatrix.push(new MatrixElement((this.plotMatrix[r][c].score),
+                    this.addInAlignmentClass(this.plotMatrix[r][c])));
             }
         }
 
         return alignmentMatrix;
+    }
+
+    addInAlignmentClass(pv: PlotValue): string {
+        if (pv.inAlignment) {
+            return 'in-alignment';
+        } else {
+            return '';
+        }
+    }
+
+    backTrackForAlignment(sequence1: string, sequence2: string) {
+
+        let seq1Pos = sequence1.length - 1;
+        let seq2Pos = sequence2.length - 1;
+
+        // start at bottom right corner
+        let currentPv = this.plotMatrix[sequence1.length][sequence2.length];
+        currentPv.inAlignment = true;
+
+        let seq1Final = '';
+        let seq2Final = '';
+
+        const dash = '-';
+
+        while (currentPv.diagnol != null || currentPv.vertical != null || currentPv.horizontal != null) {
+            if (currentPv.diagnol != null) {
+                currentPv = currentPv.diagnol;
+                currentPv.inAlignment = true;
+            } else if (currentPv.vertical != null) {
+                currentPv = currentPv.vertical;
+                currentPv.inAlignment = true;
+            } else if (currentPv.horizontal != null) {
+                currentPv = currentPv.horizontal;
+                currentPv.inAlignment = true;
+            }
+
+        }
+
     }
 
 }
