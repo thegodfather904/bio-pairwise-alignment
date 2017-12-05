@@ -16,35 +16,7 @@ export class GlobalAlignment {
         this.fillOutPlot(vd);
 
         vd.score = this.plotMaxScore;
-
-        const me = [
-          new MatrixElement('', 'sequence-value start-value first-row'),
-          new MatrixElement('', 'sequence-value first-row'),
-          new MatrixElement('A', 'sequence-value first-row'),
-          new MatrixElement('C', 'sequence-value first-row'),
-          new MatrixElement('G', 'sequence-value first-row'),
-          new MatrixElement('', 'sequence-value start-value'),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('G', 'sequence-value start-value'),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('C', 'sequence-value start-value'),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('G', 'sequence-value start-value'),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', ''),
-          new MatrixElement('0', '')
-        ];
-        vd.alignmentMatrix = me;
+        vd.alignmentMatrix = this.convertPlotMatrixToAlignmentMatrix(vd.sequence1, vd.sequence2);
         return vd;
     }
 
@@ -54,11 +26,8 @@ export class GlobalAlignment {
         seq2Length++;
 
         this.plotMatrix = [];
-        for (let row = 0; row < seq2Length; row++) {
-            this.plotMatrix[row] = [];
-        }
-
         for (let r = 0; r < seq2Length; r++) {
+            this.plotMatrix[r] = [];
             for (let c = 0; c < seq1Length; c++) {
                 this.plotMatrix[r][c] = new PlotValue();
             }
@@ -132,6 +101,29 @@ export class GlobalAlignment {
             score = mismatch;
         }
         return score;
+    }
+
+    convertPlotMatrixToAlignmentMatrix(sequence1: string, sequence2: string ): MatrixElement[] {
+
+        const alignmentMatrix = Array<MatrixElement>();
+
+        // set up first row with sequence 1 values
+        alignmentMatrix.push(new MatrixElement('', 'sequence-value start-value first-row'));
+        alignmentMatrix.push(new MatrixElement('-', 'sequence-value first-row'));
+        for (let i = 0; i < sequence1.length; i++) {
+            alignmentMatrix.push(new MatrixElement(sequence1.charAt(i), 'sequence-value first-row'));
+        }
+
+        const seq2WithFront = '-' + sequence2;
+
+        for (let r = 0; r < sequence2.length + 1; r++) {
+            alignmentMatrix.push(new MatrixElement(seq2WithFront.charAt(r), 'sequence-value start-value'));
+            for (let c = 0; c < sequence1.length + 1; c++) {
+                alignmentMatrix.push(new MatrixElement((this.plotMatrix[r][c].score), ''));
+            }
+        }
+
+        return alignmentMatrix;
     }
 
 }
