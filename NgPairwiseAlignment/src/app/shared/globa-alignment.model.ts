@@ -8,6 +8,8 @@ export class GlobalAlignment {
 
     private plotMatrix;
     private plotMaxScore: number;
+    private seq1Final: string;
+    private seq2Final: string;
 
     runGlobalAlignment(vd: VisualizerData): VisualizerData  {
 
@@ -63,9 +65,9 @@ export class GlobalAlignment {
         let maxScore: number;
         let currentPlotValue: PlotValue;
 
-        for (let row = 1; row < vd.sequence1.length + 1; row++) {
+        for (let row = 1; row < vd.sequence2.length + 1; row++) {
            seq2Char = vd.sequence2.charAt(row - 1);
-           for (let col = 1; col < vd.sequence2.length + 1; col++) {
+           for (let col = 1; col < vd.sequence1.length + 1; col++) {
                seq1Char = vd.sequence1.charAt(col - 1);
 
                vertical = (this.plotMatrix[row - 1][col]).score + vd.gapPenalty;
@@ -91,7 +93,7 @@ export class GlobalAlignment {
            }
         }
 
-        this.plotMaxScore = (this.plotMatrix[vd.sequence1.length][vd.sequence2.length]).score;
+        this.plotMaxScore = (this.plotMatrix[vd.sequence2.length][vd.sequence1.length]).score;
     }
 
     calcScoreForDiagnol(seq1Char: string, seq2Char: string, match: number, mismatch: number): number {
@@ -142,7 +144,7 @@ export class GlobalAlignment {
         let seq2Pos = sequence2.length - 1;
 
         // start at bottom right corner
-        let currentPv = this.plotMatrix[sequence1.length][sequence2.length];
+        let currentPv = this.plotMatrix[sequence2.length][sequence1.length];
         currentPv.inAlignment = true;
 
         let seq1Final = '';
