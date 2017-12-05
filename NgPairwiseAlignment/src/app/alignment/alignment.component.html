@@ -1,4 +1,4 @@
 <div class="page-wrapper">
-  <app-user-input (alignSequences)="onAlignSequences($event)"></app-user-input>
-  <app-visualizer [vd]="visualizerData"></app-visualizer>
+  <app-user-input (alignSequences)="onAlignSequences($event)" (resetAlignment)="onResetAlignment()"></app-user-input>
+  <app-visualizer [vd]="visualizerData" *ngIf="alignSequenceClicked"></app-visualizer>
 </div>

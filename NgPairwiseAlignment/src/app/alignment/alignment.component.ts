@@ -13,6 +13,7 @@ import { AlignmentOptions } from '../shared/alignment-options.enum';
 export class AlignmentComponent implements OnInit {
 
   visualizerData = new VisualizerData();
+  alignSequenceClicked = false;
 
   constructor() {}
 
@@ -32,6 +33,13 @@ export class AlignmentComponent implements OnInit {
 
     vd.matrixElementWidth = this.calcAlignmentMatrixElementWidth(userInput.sequence1.length);
     this.visualizerData = vd;
+
+    this.alignSequenceClicked = true;
+  }
+
+  onResetAlignment() {
+    this.visualizerData = new VisualizerData();
+    this.alignSequenceClicked = false;
   }
 
   /* Width = 100% divided by length of sequence 1 + 2 (to account for the first stuff added)*/

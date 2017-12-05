@@ -20,6 +20,9 @@ export class UserInputComponent implements OnInit {
   @Output()
   alignSequences = new EventEmitter<UserInput>();
 
+  @Output()
+  resetAlignment = new EventEmitter<any>();
+
   constructor() {
     this.buildAlignmentOptionsList();
   }
@@ -37,6 +40,11 @@ export class UserInputComponent implements OnInit {
 
   onAlignSequences() {
     this.alignSequences.emit(this.userInput);
+  }
+
+  onReset() {
+    this.userInput = new UserInput();
+    this.resetAlignment.emit();
   }
 
   seq1InputChange() {

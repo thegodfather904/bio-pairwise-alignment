@@ -73,7 +73,8 @@ label {
 fieldset.more-options {
   margin: 0 0 20px 0;
   border: none;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
+  margin-top: 16px;
 }
 
 .more-options legend {
