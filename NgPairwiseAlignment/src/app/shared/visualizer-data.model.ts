@@ -5,6 +5,8 @@ export class VisualizerData {
     public sequence2: string;
     public score: number;
     public gapPenalty: number;
+    public seqMatch: number;
+    public seqMismatch: number;
     public alignmentMatrix: MatrixElement[];
     public matrixElementWidth = '25%';
 

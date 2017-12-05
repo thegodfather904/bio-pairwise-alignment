@@ -15,8 +15,15 @@
     <div class="fieldset-inner">
       <div class="option">
         <label for="alignmentType">Alignment Type</label>
-        <p-dropdown id="alignmentType" [options]="alignmentOptions"
-         [(ngModel)]="userInput.alignmentType"></p-dropdown>
+        <p-dropdown id="alignmentType" [options]="alignmentOptions" [(ngModel)]="userInput.alignmentType"></p-dropdown>
+      </div>
+      <div class="option">
+        <label for="gapPenalty">Sequence Match</label>
+        <input id="gapPenalty" type="text" pInputText [(ngModel)]="userInput.seqMatch">
+      </div>
+      <div class="option">
+        <label for="gapPenalty">Sequence Mismatch</label>
+        <input id="gapPenalty" type="text" pInputText [(ngModel)]="userInput.seqMismatch">
       </div>
       <div class="option">
         <label for="gapPenalty">Gap Penalty</label>

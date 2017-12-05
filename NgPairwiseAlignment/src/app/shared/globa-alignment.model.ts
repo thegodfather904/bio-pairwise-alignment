@@ -6,12 +6,16 @@ export class GlobalAlignment {
     constructor() {}
 
     private plotMatrix: PlotValue[];
+    private plotMaxScore: number;
 
     runGlobalAlignment(vd: VisualizerData): VisualizerData  {
 
         this.plotInit(vd.sequence1.length, vd.sequence2.length, vd.gapPenalty);
 
-        vd.score = -18;
+        this.fillOutPlot(vd);
+
+        vd.score = this.plotMaxScore;
+
         const me = [
           new MatrixElement('', 'sequence-value start-value first-row'),
           new MatrixElement('', 'sequence-value first-row'),
@@ -73,7 +77,65 @@ export class GlobalAlignment {
             currentPenalty += gapPenalty;
             this.plotMatrix[row][0] = pv;
         }
+    }
 
+    fillOutPlot(vd: VisualizerData) {
+        let vertical: number;
+        let horizontal: number;
+        let diagnol: number;
+        let seq1Char: string;
+        let seq2Char: string;
+        let maxScore: number;
+        let currentPlotValue: PlotValue;
+        let test = 0;
+        let val1;
+        let val2;
+
+        for (let row = 1; row < vd.sequence1.length + 1; row++) {
+           seq1Char = vd.sequence1.charAt(row - 1);
+           for (let col = 1; col < vd.sequence2.length + 1; col++) {
+               seq2Char = vd.sequence2.charAt(col - 1);
+
+               vertical = (this.plotMatrix[row - 1][col]).score + vd.gapPenalty;
+               horizontal = (this.plotMatrix[row][col - 1]).score + vd.gapPenalty;
+               diagnol = this.calcScoreForDiagnol(seq1Char, seq2Char, vd.seqMatch, vd.seqMismatch) +
+                (this.plotMatrix[row - 1][col - 1]).score;
+
+               maxScore = Math.max(Math.max(vertical, horizontal), diagnol);
+
+               currentPlotValue = new PlotValue();
+               currentPlotValue.score = maxScore;
+
+               currentPlotValue.score = test++;
+
+               this.plotMatrix[row][col] = currentPlotValue;
+
+               if (diagnol === maxScore) {
+                   currentPlotValue.diagnol = this.plotMatrix[row - 1][col - 1];
+               }
+               if (vertical === maxScore) {
+                   currentPlotValue.vertical = this.plotMatrix[row - 1][col];
+               }
+               if (horizontal === maxScore) {
+                currentPlotValue.horizontal = this.plotMatrix[row][col - 1];
+               }
+           }
+        }
+
+        this.plotMaxScore = (this.plotMatrix[vd.sequence1.length][vd.sequence2.length]).score;
+
+        val1 = this.plotMatrix[1][2];
+        val2 = this.plotMatrix[3][1];
+    }
+
+    calcScoreForDiagnol(seq1Char: string, seq2Char: string, match: number, mismatch: number): number {
+        let score = 0;
+        if (seq1Char === seq2Char) {
+           score = match;
+        }else {
+            score = mismatch;
+        }
+        return score;
     }
 
 }

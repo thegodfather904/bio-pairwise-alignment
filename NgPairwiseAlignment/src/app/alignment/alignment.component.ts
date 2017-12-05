@@ -23,6 +23,8 @@ export class AlignmentComponent implements OnInit {
     vd.sequence1 = userInput.sequence1;
     vd.sequence2 = userInput.sequence2;
     vd.gapPenalty = userInput.gapPenalty;
+    vd.seqMatch = userInput.seqMatch;
+    vd.seqMismatch = userInput.seqMismatch;
 
     if (userInput.alignmentType === AlignmentOptions.GLOBAL) {
      vd = this.runGlobalAlignment(vd);
