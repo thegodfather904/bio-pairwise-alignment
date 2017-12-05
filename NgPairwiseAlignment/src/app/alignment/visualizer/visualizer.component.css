@@ -1,13 +1,81 @@
 .visualizer-cntr{
     overflow: hidden;
+    border-top: 1px solid #c0c2c7;
+    margin-top: 36px;
+    padding-top: 36px;
+}
+
+.card {
+    border: 1px solid #c0c2c7;
+    height: 200px;
+    box-shadow: 1px 1px 5px 0px rgba(192,194,199,1);
+    position: relative;
+    float: left;
 }
 
 .score-cntr {
-    font-size: 24px;
+    width: 27%;
+    margin-right: 3%;
+}
+
+.card-stripe {
+    float: left;
+    height: 100%;
+    background-color: #2c3e50;
+    width: 50px; 
+    position: absolute;
+    text-align: center;
+}
+
+.card-content{
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-top: 36px;
+    padding-left: 50px;
+}
+
+.card-content .value {
+    font-size: 70px;
+}
+
+.card-content .text {
+    font-size: 20px;
+}
+
+.card-stripe i {
+    font-size: 26px;
+    padding: 14px 0;
+    color: #fff;
+}
+
+.final-alignment-cntr {
+    width: 70%;
+}
+
+.final-alignment-cntr .card-content {
+    padding-top: 24px;
+}
+
+.final-alignment {
+    text-align: left;
+    padding-bottom: 26px;
+    padding-left: 16px;
+}
+
+.final-alignment-value {
+    font-size: 40px;
+    letter-spacing: 10px;
+    font-family: 'Inconsolata', monospace;
+}
+
+.final-alignment-label {
+    font-size: 14px;
 }
 
 .matrix-cntr {
     overflow: hidden;
+    clear: left;
 }
 
 .matrix-element {

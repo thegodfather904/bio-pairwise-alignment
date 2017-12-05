@@ -1,11 +1,27 @@
 <div class="visualizer-cntr">
-  <div class="score-cntr">
-    Score: {{ vd.score }}
+  <div class="card score-cntr">
+    <div class="card-stripe">
+      <i class="fa fa-ravelry" aria-hidden="true"></i>
+    </div>
+    <div class="card-content">
+      <div class="value">{{ vd.score }}</div>
+      <div class="text">Alignment Score</div>
+    </div>
   </div>
-  <div class="final-alignment-cntr">
-    <div class="final-title">Final Alignment</div>
-    <div class="final-alignment">{{ vd.seq1Final }}</div>
-    <div class="final-alignment">{{ vd.seq2Final }}</div>
+  <div class="card final-alignment-cntr">
+    <div class="card-stripe">
+      <i class="fa fa-share-alt" aria-hidden="true"></i>
+    </div>
+    <div class="card-content">
+      <div class="final-alignment">
+        <div class="final-alignment-label">Sequence 1</div>
+        <div class="final-alignment-value">{{ vd.seq1Final }}</div>
+      </div>
+      <div class="final-alignment">
+        <div class="final-alignment-label">Sequence 2</div>
+        <div class="final-alignment-value">{{ vd.seq2Final }}</div>
+      </div>
+    </div>
   </div>
   <div class="matrix-cntr">
     <div class="matrix-element" [style.width]="vd.matrixElementWidth" [ngClass]="me.styleClass" *ngFor="let me of vd.alignmentMatrix">
