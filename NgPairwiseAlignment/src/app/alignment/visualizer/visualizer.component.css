@@ -1,10 +1,13 @@
 .visualizer-cntr{
-    padding: 20px;
     overflow: hidden;
 }
 
 .score-cntr {
     font-size: 24px;
+}
+
+.matrix-cntr {
+    overflow: hidden;
 }
 
 .matrix-element {

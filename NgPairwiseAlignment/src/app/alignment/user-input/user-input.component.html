@@ -1,13 +1,19 @@
 <div class="user-input-cntr">
-  <div>{{ userInput.alignmentType }} Alignment</div>
   <div class="sequence-cntr">
     <div class="sequence-wrapper">
       <label for="sequence1">Sequence 1</label>
-      <textarea id="sequence1" pInputTextArea [(ngModel)]="userInput.sequence1"></textarea>
+      <input id="sequence1" pInputText [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength"
+      (keyup)="seq1InputChange()">
+      <div class="chars-left">
+        {{ seq1CharsUsed }} / {{ maxSequenceLength }} chars
+      </div>
     </div>
     <div class="sequence-wrapper">
       <label for="sequence2">Sequence 2</label>
-      <textarea id="sequence2" pInputTextArea [(ngModel)]="userInput.sequence2"></textarea>
+      <input id="sequence2" pInputText [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
+      <div class="chars-left">
+        {{ seq2CharsUsed }} / {{ maxSequenceLength }} chars
+      </div>
     </div>
   </div>
 
@@ -34,7 +40,8 @@
   </p-fieldset>
 
   <div class="align-wrapper">
-    <button pButton type="button" label="Align Sequences" (click)="onAlignSequences()"></button>
+    <button pButton type="button" label="Align" (click)="onAlignSequences()"></button>
+    <button pButton type="button" label="Reset" (click)="onAlignSequences()" class="ui-button-secondary"></button>
   </div>
 
 </div>

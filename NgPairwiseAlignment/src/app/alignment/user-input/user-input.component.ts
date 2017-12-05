@@ -11,7 +11,10 @@ import { AlignmentOptions } from '../../shared/alignment-options.enum';
 })
 export class UserInputComponent implements OnInit {
 
+  maxSequenceLength = 20;
   userInput = new UserInput();
+  seq1CharsUsed = 0;
+  seq2CharsUsed = 0;
   alignmentOptions: SelectItem[];
 
   @Output()
@@ -34,6 +37,14 @@ export class UserInputComponent implements OnInit {
 
   onAlignSequences() {
     this.alignSequences.emit(this.userInput);
+  }
+
+  seq1InputChange() {
+    this.seq1CharsUsed = this.userInput.sequence1.length;
+  }
+
+  seq2InputChange() {
+    this.seq2CharsUsed = this.userInput.sequence2.length;
   }
 
 }

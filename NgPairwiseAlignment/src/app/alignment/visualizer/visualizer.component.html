@@ -2,9 +2,13 @@
   <div class="score-cntr">
     Score: {{ vd.score }}
   </div>
+  <div class="final-alignment-cntr">
+    <div class="final-title">Final Alignment</div>
+    <div class="final-alignment">{{ vd.seq1Final }}</div>
+    <div class="final-alignment">{{ vd.seq2Final }}</div>
+  </div>
   <div class="matrix-cntr">
-    <div class="matrix-element" [style.width]="vd.matrixElementWidth"
-    [ngClass]="me.styleClass" *ngFor="let me of vd.alignmentMatrix">
+    <div class="matrix-element" [style.width]="vd.matrixElementWidth" [ngClass]="me.styleClass" *ngFor="let me of vd.alignmentMatrix">
       {{ me.value }}
     </div>
   </div>

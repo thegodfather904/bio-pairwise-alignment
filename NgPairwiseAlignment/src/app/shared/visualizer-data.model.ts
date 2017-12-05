@@ -9,6 +9,8 @@ export class VisualizerData {
     public seqMismatch: number;
     public alignmentMatrix: MatrixElement[];
     public matrixElementWidth = '25%';
+    public seq1Final: string;
+    public seq2Final: string;
 
     constructor() {}
 }

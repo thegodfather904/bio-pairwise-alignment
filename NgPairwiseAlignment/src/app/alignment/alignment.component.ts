@@ -36,7 +36,7 @@ export class AlignmentComponent implements OnInit {
 
   /* Width = 100% divided by length of sequence 1 + 2 (to account for the first stuff added)*/
   calcAlignmentMatrixElementWidth(sequence1Length: number): string {
-    return (100 / (sequence1Length + 2)).toFixed(2) + '%';
+    return Math.floor((100 / (sequence1Length + 2))) + '%';
   }
 
   // TODO probs move to service class at some point

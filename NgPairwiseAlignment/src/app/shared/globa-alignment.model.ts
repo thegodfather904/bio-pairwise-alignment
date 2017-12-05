@@ -20,6 +20,9 @@ export class GlobalAlignment {
 
         vd.score = this.plotMaxScore;
         vd.alignmentMatrix = this.convertPlotMatrixToAlignmentMatrix(vd.sequence1, vd.sequence2);
+        vd.seq1Final = this.seq1Final;
+        vd.seq2Final = this.seq2Final;
+
         return vd;
     }
 
@@ -156,15 +159,23 @@ export class GlobalAlignment {
             if (currentPv.diagnol != null) {
                 currentPv = currentPv.diagnol;
                 currentPv.inAlignment = true;
+                seq1Final += sequence1.charAt(seq1Pos--);
+                seq2Final += sequence2.charAt(seq2Pos--);
             } else if (currentPv.vertical != null) {
                 currentPv = currentPv.vertical;
                 currentPv.inAlignment = true;
+                seq1Final += dash;
+                seq2Final += sequence2.charAt(seq2Pos--);
             } else if (currentPv.horizontal != null) {
                 currentPv = currentPv.horizontal;
                 currentPv.inAlignment = true;
+                seq1Final += sequence1.charAt(seq1Pos--);
+                seq2Final += dash;
             }
-
         }
+
+        this.seq1Final = seq1Final.split('').reverse().join('');
+        this.seq2Final = seq2Final.split('').reverse().join('');
 
     }
 
