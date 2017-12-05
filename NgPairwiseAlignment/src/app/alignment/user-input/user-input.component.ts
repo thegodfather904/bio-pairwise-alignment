@@ -44,6 +44,8 @@ export class UserInputComponent implements OnInit {
 
   onReset() {
     this.userInput = new UserInput();
+    this.seq1CharsUsed = 0;
+    this.seq2CharsUsed = 0;
     this.resetAlignment.emit();
   }
 

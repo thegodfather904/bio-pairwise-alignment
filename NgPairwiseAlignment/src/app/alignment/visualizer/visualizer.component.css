@@ -1,8 +1,13 @@
 .visualizer-cntr{
     overflow: hidden;
-    border-top: 1px solid #c0c2c7;
-    margin-top: 36px;
-    padding-top: 36px;
+    margin-top: 72px;
+}
+
+.section-title {
+    border-bottom: 1px solid #c0c2c7;
+    padding-bottom: 4px;
+    margin-bottom: 40px;
+    font-size: 20px;
 }
 
 .card {
@@ -76,6 +81,7 @@
 .matrix-cntr {
     overflow: hidden;
     clear: left;
+    padding-top: 70px
 }
 
 .matrix-element {

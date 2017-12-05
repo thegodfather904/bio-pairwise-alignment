@@ -1,4 +1,7 @@
 <div class="visualizer-cntr">
+  <div class="section-title">
+    Scoring Info
+  </div>
   <div class="card score-cntr">
     <div class="card-stripe">
       <i class="fa fa-ravelry" aria-hidden="true"></i>
@@ -24,6 +27,9 @@
     </div>
   </div>
   <div class="matrix-cntr">
+    <div class="section-title">
+      Scoring Matrix
+    </div>
     <div class="matrix-element" [style.width]="vd.matrixElementWidth" [ngClass]="me.styleClass" *ngFor="let me of vd.alignmentMatrix">
       {{ me.value }}
     </div>
