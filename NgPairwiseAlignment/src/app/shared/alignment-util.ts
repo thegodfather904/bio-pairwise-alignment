@@ -29,12 +29,22 @@ export class AlignmentUtil {
         new MatrixElement(seq2WithFront.charAt(r), 'sequence-value start-value')
       );
       for (let c = 0; c < sequence1.length + 1; c++) {
-        alignmentMatrix.push(
-          new MatrixElement(
-            plotMatrix[r][c].score,
-            this.addInAlignmentClass(plotMatrix[r][c])
-          )
-        );
+        if (isNaN(plotMatrix[r][c].score)) {
+          alignmentMatrix.push(
+            new MatrixElement(
+              '-',
+              this.addInAlignmentClass(plotMatrix[r][c])
+            )
+          );
+        } else {
+          alignmentMatrix.push(
+            new MatrixElement(
+              plotMatrix[r][c].score,
+              this.addInAlignmentClass(plotMatrix[r][c])
+            )
+          );
+        }
+
       }
     }
 

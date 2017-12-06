@@ -14,6 +14,6 @@ export class UserInput {
         this.gapPenalty = -3;
         this.seqMatch = 1;
         this.seqMismatch = -1;
-        this.bandedAlignmentMax = -20;
+        this.bandedAlignmentMax = -12;
     }
 }
