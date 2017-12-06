@@ -2,6 +2,10 @@
   <div class="section-title">
     Scoring Info
   </div>
+  <div class="banded-failed" *ngIf="!vd.bandedSuccess">
+    <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+    Banded minimum was too low to complete the algorithm (see matrix below)
+  </div>
   <div class="card score-cntr">
     <div class="card-stripe">
       <i class="fa fa-ravelry" aria-hidden="true"></i>

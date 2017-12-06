@@ -1,10 +1,11 @@
+import { AlignmentOptions } from './../shared/alignment-options.enum';
 import { GlobalAlignment } from './../shared/globa-alignment.model';
 import { MatrixElement } from './../shared/matrix-element.model';
 import { Component, OnInit } from '@angular/core';
 import { UserInput } from '../shared/userInput.model';
 import { VisualizerData } from '../shared/visualizer-data.model';
-import { AlignmentOptions } from '../shared/alignment-options.enum';
 import { LocalAlignment } from '../shared/local-alignment.model';
+import { BandedGlobalAlignment } from '../shared/banded-alignment.model';
 
 @Component({
   selector: 'app-alignment',
@@ -32,6 +33,8 @@ export class AlignmentComponent implements OnInit {
      vd = this.runGlobalAlignment(vd);
     } else if (userInput.alignmentType === AlignmentOptions.LOCAL) {
       vd = this.runLocalAlignment(vd);
+    }else if (userInput.alignmentType === AlignmentOptions.BANDED) {
+      vd = this.runBandedGlobalAlignment(vd, userInput.bandedAlignmentMax);
     }
 
     vd.matrixElementWidth = this.calcAlignmentMatrixElementWidth(userInput.sequence1.length);
@@ -60,6 +63,12 @@ export class AlignmentComponent implements OnInit {
   runLocalAlignment(vd: VisualizerData): VisualizerData {
     const la = new LocalAlignment();
     vd = la.runLocalAlignment(vd);
+    return vd;
+  }
+
+  runBandedGlobalAlignment(vd: VisualizerData, bandedAlignmentMin: number): VisualizerData {
+    const ba = new BandedGlobalAlignment();
+    vd = ba.runGlobalAlignment(vd, bandedAlignmentMin);
     return vd;
   }
 

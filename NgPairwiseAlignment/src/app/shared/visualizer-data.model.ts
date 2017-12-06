@@ -11,6 +11,7 @@ export class VisualizerData {
     public matrixElementWidth = '25%';
     public seq1Final: string;
     public seq2Final: string;
+    public bandedSuccess = true;
 
     constructor() {}
 }

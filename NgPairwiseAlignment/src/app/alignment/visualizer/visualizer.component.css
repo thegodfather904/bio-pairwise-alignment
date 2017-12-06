@@ -1,117 +1,130 @@
-.visualizer-cntr{
-    overflow: hidden;
-    margin-top: 72px;
+.visualizer-cntr {
+  overflow: hidden;
+  margin-top: 72px;
 }
 
 .section-title {
-    border-bottom: 1px solid #c0c2c7;
-    padding-bottom: 4px;
-    margin-bottom: 40px;
-    font-size: 20px;
+  border-bottom: 1px solid #c0c2c7;
+  padding-bottom: 4px;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
 
 .card {
-    border: 1px solid #c0c2c7;
-    height: 200px;
-    box-shadow: 1px 1px 5px 0px rgba(192,194,199,1);
-    position: relative;
-    float: left;
+  border: 1px solid #c0c2c7;
+  height: 200px;
+  box-shadow: 1px 1px 5px 0px rgba(192, 194, 199, 1);
+  position: relative;
+  float: left;
 }
 
 .score-cntr {
-    width: 27%;
-    margin-right: 3%;
+  width: 27%;
+  margin-right: 3%;
 }
 
 .card-stripe {
-    float: left;
-    height: 100%;
-    background-color: #2c3e50;
-    width: 50px; 
-    position: absolute;
-    text-align: center;
+  float: left;
+  height: 100%;
+  background-color: #2c3e50;
+  width: 50px;
+  position: absolute;
+  text-align: center;
 }
 
-.card-content{
-    width: 100%;
-    float: left;
-    text-align: center;
-    padding-top: 36px;
-    padding-left: 50px;
+.card-content {
+  width: 100%;
+  float: left;
+  text-align: center;
+  padding-top: 36px;
+  padding-left: 50px;
 }
 
 .card-content .value {
-    font-size: 70px;
+  font-size: 70px;
 }
 
 .card-content .text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .card-stripe i {
-    font-size: 26px;
-    padding: 14px 0;
-    color: #fff;
+  font-size: 26px;
+  padding: 14px 0;
+  color: #fff;
 }
 
 .final-alignment-cntr {
-    width: 70%;
+  width: 70%;
 }
 
 .final-alignment-cntr .card-content {
-    padding-top: 24px;
+  padding-top: 24px;
 }
 
 .final-alignment {
-    text-align: left;
-    padding-bottom: 26px;
-    padding-left: 16px;
+  text-align: left;
+  padding-bottom: 26px;
+  padding-left: 16px;
 }
 
 .final-alignment-value {
-    font-size: 40px;
-    letter-spacing: 10px;
-    font-family: 'Inconsolata', monospace;
+  font-size: 40px;
+  letter-spacing: 10px;
+  font-family: "Inconsolata", monospace;
 }
 
 .final-alignment-label {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .matrix-cntr {
-    overflow: hidden;
-    clear: left;
-    padding-top: 70px
+  overflow: hidden;
+  clear: left;
+  padding-top: 70px;
 }
 
 .matrix-element {
-    float: left;
-    border: 1px solid #c0c2c7;
-    padding: 20px 0;
-    text-align: center;
+  float: left;
+  border: 1px solid #c0c2c7;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .matrix-element.start-value {
-    clear: left;
-    text-align: right;
-    font-style: italic;
-    font-weight: bold;
-    padding-right: 16px;
+  clear: left;
+  text-align: right;
+  font-style: italic;
+  font-weight: bold;
+  padding-right: 16px;
 }
 
 .matrix-element.sequence-value {
-    border: none;
+  border: none;
 }
 
 .matrix-element.sequence-value.first-row {
-    height: auto;
-    font-style: italic;
-    font-weight: bold;
-    padding-bottom: 16px;
+  height: auto;
+  font-style: italic;
+  font-weight: bold;
+  padding-bottom: 16px;
 }
 
 .matrix-element.in-alignment {
-    background-color: #336E7B;
-    border: 1px solid #336E7B;
-    color: #fff;
+  background-color: #336e7b;
+  border: 1px solid #336e7b;
+  color: #fff;
+}
+
+.banded-failed {
+  font-size: 20px;
+  border: 1px solid red;
+  background-color: #ffe6e6;
+  border-radius: 4px;
+  margin-bottom: 36px;
+  padding: 8px;
+}
+
+.banded-failed i {
+    color: #dc2e28;
 }

@@ -24,16 +24,20 @@
         <p-dropdown id="alignmentType" [options]="alignmentOptions" [(ngModel)]="userInput.alignmentType"></p-dropdown>
       </div>
       <div class="option">
-        <label for="gapPenalty">Sequence Match</label>
-        <input id="gapPenalty" type="number" pInputText [(ngModel)]="userInput.seqMatch">
+        <label for="sequenceMatch">Sequence Match</label>
+        <input id="sequenceMatch" type="number" pInputText [(ngModel)]="userInput.seqMatch">
       </div>
       <div class="option">
-        <label for="gapPenalty">Sequence Mismatch</label>
-        <input id="gapPenalty" type="number" pInputText [(ngModel)]="userInput.seqMismatch">
+        <label for="sequenceMismatch">Sequence Mismatch</label>
+        <input id="sequenceMismatch" type="number" pInputText [(ngModel)]="userInput.seqMismatch">
       </div>
       <div class="option">
         <label for="gapPenalty">Gap Penalty</label>
         <input id="gapPenalty" type="number" pInputText [(ngModel)]="userInput.gapPenalty">
+      </div>
+      <div class="option">
+        <label for="bandedMin">Banded Minimum</label>
+        <input id="bandedMin" type="number" pInputText [(ngModel)]="userInput.bandedAlignmentMax">
       </div>
     </div>
 
