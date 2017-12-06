@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserInput } from '../shared/userInput.model';
 import { VisualizerData } from '../shared/visualizer-data.model';
 import { AlignmentOptions } from '../shared/alignment-options.enum';
+import { LocalAlignment } from '../shared/local-alignment.model';
 
 @Component({
   selector: 'app-alignment',
@@ -29,6 +30,8 @@ export class AlignmentComponent implements OnInit {
 
     if (userInput.alignmentType === AlignmentOptions.GLOBAL) {
      vd = this.runGlobalAlignment(vd);
+    } else if (userInput.alignmentType === AlignmentOptions.LOCAL) {
+      vd = this.runLocalAlignment(vd);
     }
 
     vd.matrixElementWidth = this.calcAlignmentMatrixElementWidth(userInput.sequence1.length);
@@ -51,6 +54,12 @@ export class AlignmentComponent implements OnInit {
   runGlobalAlignment(vd: VisualizerData): VisualizerData {
     const ga = new GlobalAlignment();
     vd = ga.runGlobalAlignment(vd);
+    return vd;
+  }
+
+  runLocalAlignment(vd: VisualizerData): VisualizerData {
+    const la = new LocalAlignment();
+    vd = la.runLocalAlignment(vd);
     return vd;
   }
 

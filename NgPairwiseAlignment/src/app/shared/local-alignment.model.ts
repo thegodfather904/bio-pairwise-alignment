@@ -1,10 +1,8 @@
 import { AlignmentUtil } from './alignment-util';
-import { MatrixElement } from './matrix-element.model';
-import { VisualizerData } from './visualizer-data.model';
 import { PlotValue } from './plot-value.model';
-import { identifierModuleUrl } from '@angular/compiler';
+import { VisualizerData } from './visualizer-data.model';
 
-export class GlobalAlignment {
+export class LocalAlignment {
     constructor() {}
 
     private plotMatrix;
@@ -12,23 +10,22 @@ export class GlobalAlignment {
     private seq1Final: string;
     private seq2Final: string;
 
-    runGlobalAlignment(vd: VisualizerData): VisualizerData  {
+    private maxScorePlotValue: PlotValue;
 
-        this.plotInit(vd.sequence1.length, vd.sequence2.length, vd.gapPenalty);
-
+    runLocalAlignment(vd: VisualizerData): VisualizerData {
+        this.plotInit(vd.sequence1.length, vd.sequence2.length);
         this.fillOutPlot(vd);
         this.backTrackForAlignment(vd.sequence1, vd.sequence2);
-
         vd.score = this.plotMaxScore;
         const util = new AlignmentUtil();
         vd.alignmentMatrix = util.convertPlotMatrixToAlignmentMatrix(vd.sequence1, vd.sequence2, this.plotMatrix);
         vd.seq1Final = this.seq1Final;
         vd.seq2Final = this.seq2Final;
-
         return vd;
     }
 
-    plotInit(seq1Length: number, seq2Length: number, gapPenalty: number) {
+
+    plotInit(seq1Length: number, seq2Length: number) {
         // Initialize empty plot
         seq1Length++;
         seq2Length++;
@@ -41,22 +38,18 @@ export class GlobalAlignment {
             }
         }
 
-        // Init first row
+        // Init first row to 0's
         let pv: PlotValue;
-        let currentPenalty = 0;
         for (let c = 0; c < seq1Length; c++) {
             pv = new PlotValue();
-            pv.score = currentPenalty;
-            currentPenalty += gapPenalty;
+            pv.score = 0;
             this.plotMatrix[0][c] = pv;
         }
 
-        // Init first col
-        currentPenalty = gapPenalty;
+        // Init first col to 0's
         for (let row = 1; row < seq2Length; row++) {
             pv = new PlotValue();
-            pv.score = currentPenalty;
-            currentPenalty += gapPenalty;
+            pv.score = 0;
             this.plotMatrix[row][0] = pv;
         }
     }
@@ -70,6 +63,8 @@ export class GlobalAlignment {
         let maxScore: number;
         let currentPlotValue: PlotValue;
 
+        let maxPlotValue = this.plotMatrix[0][0];
+
         for (let row = 1; row < vd.sequence2.length + 1; row++) {
            seq2Char = vd.sequence2.charAt(row - 1);
            for (let col = 1; col < vd.sequence1.length + 1; col++) {
@@ -82,11 +77,19 @@ export class GlobalAlignment {
 
                maxScore = Math.max(Math.max(vertical, horizontal), diagnol);
 
+               if (maxScore < 0) {
+                   maxScore = 0;
+               }
+
                currentPlotValue = new PlotValue();
                currentPlotValue.score = maxScore;
                currentPlotValue.row = row;
                currentPlotValue.col = col;
                this.plotMatrix[row][col] = currentPlotValue;
+
+               if (maxPlotValue.score < maxScore) {
+                    maxPlotValue = currentPlotValue;
+               }
 
                if (diagnol === maxScore) {
                    currentPlotValue.diagnol = this.plotMatrix[row - 1][col - 1];
@@ -100,7 +103,8 @@ export class GlobalAlignment {
            }
         }
 
-        this.plotMaxScore = (this.plotMatrix[vd.sequence2.length][vd.sequence1.length]).score;
+        this.plotMaxScore = maxPlotValue.score;
+        this.maxScorePlotValue = maxPlotValue;
     }
 
     calcScoreForDiagnol(seq1Char: string, seq2Char: string, match: number, mismatch: number): number {
@@ -115,39 +119,48 @@ export class GlobalAlignment {
 
     backTrackForAlignment(sequence1: string, sequence2: string) {
 
-        let seq1Pos = sequence1.length - 1;
-        let seq2Pos = sequence2.length - 1;
+    // start at max score (might not be bottom right corner)
+    let currentPv = this.maxScorePlotValue;
+    currentPv.inAlignment = true;
 
-        // start at bottom right corner
-        let currentPv = this.plotMatrix[sequence2.length][sequence1.length];
-        currentPv.inAlignment = true;
+    let seq1Pos = currentPv.col - 1;
+    let seq2Pos = currentPv.row - 1;
 
-        let seq1Final = '';
-        let seq2Final = '';
+    let seq1Final = '';
+    let seq2Final = '';
 
-        const dash = '-';
+    const dash = '-';
 
-        while (currentPv.diagnol != null || currentPv.vertical != null || currentPv.horizontal != null) {
-            if (currentPv.diagnol != null) {
-                currentPv = currentPv.diagnol;
-                currentPv.inAlignment = true;
-                seq1Final += sequence1.charAt(seq1Pos--);
-                seq2Final += sequence2.charAt(seq2Pos--);
-            } else if (currentPv.vertical != null) {
-                currentPv = currentPv.vertical;
-                currentPv.inAlignment = true;
-                seq1Final += dash;
-                seq2Final += sequence2.charAt(seq2Pos--);
-            } else if (currentPv.horizontal != null) {
-                currentPv = currentPv.horizontal;
-                currentPv.inAlignment = true;
-                seq1Final += sequence1.charAt(seq1Pos--);
-                seq2Final += dash;
-            }
+    // go until null or hit a 0;
+    while ( (currentPv.diagnol != null && currentPv.diagnol.score !== 0) ||
+    (currentPv.vertical != null && currentPv.vertical.score !== 0) ||
+    (currentPv.horizontal != null && currentPv.horizontal.score !== 0) )  {
+        if (currentPv.diagnol != null) {
+            currentPv = currentPv.diagnol;
+            currentPv.inAlignment = true;
+            seq1Final += sequence1.charAt(seq1Pos--);
+            seq2Final += sequence2.charAt(seq2Pos--);
+        } else if (currentPv.vertical != null) {
+            currentPv = currentPv.vertical;
+            currentPv.inAlignment = true;
+            seq1Final += dash;
+            seq2Final += sequence2.charAt(seq2Pos--);
+        } else if (currentPv.horizontal != null) {
+            currentPv = currentPv.horizontal;
+            currentPv.inAlignment = true;
+            seq1Final += sequence1.charAt(seq1Pos--);
+            seq2Final += dash;
         }
+    }
 
-        this.seq1Final = seq1Final.split('').reverse().join('');
-        this.seq2Final = seq2Final.split('').reverse().join('');
+    if (currentPv != null && currentPv.score !== 0) {
+        currentPv.inAlignment = true;
+        seq1Final += sequence1.charAt(seq1Pos--);
+        seq2Final += sequence2.charAt(seq2Pos--);
+    }
+
+    this.seq1Final = seq1Final.split('').reverse().join('');
+    this.seq2Final = seq2Final.split('').reverse().join('');
 
     }
 
