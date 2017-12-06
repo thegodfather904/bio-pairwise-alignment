@@ -6,6 +6,7 @@ import { UserInput } from '../shared/userInput.model';
 import { VisualizerData } from '../shared/visualizer-data.model';
 import { LocalAlignment } from '../shared/local-alignment.model';
 import { BandedGlobalAlignment } from '../shared/banded-alignment.model';
+import { DovetailAlignment } from '../shared/dovetail-alignment.model';
 
 @Component({
   selector: 'app-alignment',
@@ -35,6 +36,8 @@ export class AlignmentComponent implements OnInit {
       vd = this.runLocalAlignment(vd);
     }else if (userInput.alignmentType === AlignmentOptions.BANDED) {
       vd = this.runBandedGlobalAlignment(vd, userInput.bandedAlignmentMax);
+    }else if (userInput.alignmentType === AlignmentOptions.DOVETAIL) {
+      vd = this.runDovetailAlignment(vd);
     }
 
     vd.matrixElementWidth = this.calcAlignmentMatrixElementWidth(userInput.sequence1.length);
@@ -69,6 +72,12 @@ export class AlignmentComponent implements OnInit {
   runBandedGlobalAlignment(vd: VisualizerData, bandedAlignmentMin: number): VisualizerData {
     const ba = new BandedGlobalAlignment();
     vd = ba.runGlobalAlignment(vd, bandedAlignmentMin);
+    return vd;
+  }
+
+  runDovetailAlignment(vd: VisualizerData): VisualizerData {
+    const da = new DovetailAlignment();
+    vd = da.runDovetailAlignment(vd);
     return vd;
   }
 
