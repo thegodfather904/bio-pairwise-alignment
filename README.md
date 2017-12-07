@@ -7,11 +7,9 @@ Sequence Alignment Visualizer
 A web based tool written in Angular and Typescript built to help students understand sequence alignment for global, local dovetail, and banded alignment by showing edit distance, final alignment, and generating the sequence matrix
 
 ### Prerequisites
-```
 node
 npm
 angular-cli
-```
 
 ### Installing
 
@@ -24,7 +22,7 @@ ng serve
 ## Built With
 
 * [Angular](https://angular.io/) - Web framework used 
-* [Angular-cli] (https://cli.angular.io/) - Project built with 
+* [Angular-cli](https://cli.angular.io/) - Project built with 
 * [PrimeNG](https://www.primefaces.org/primeng/#/) - UI Framework
 * [NodeJS](https://nodejs.org/en/) - Served with 
 
