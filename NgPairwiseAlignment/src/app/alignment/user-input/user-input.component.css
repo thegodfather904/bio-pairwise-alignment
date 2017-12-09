@@ -30,17 +30,15 @@ label {
   padding-right: 0;
 }
 
-.sequence-wrapper label {
-  font-size: 18px;
-}
-
 .sequence-wrapper input {
   width: 100%;
   font-size: 30px;
   border-radius: 0px;
-  border: none;
-  border-bottom: 1px solid #c0c2c7;
-  padding: 0 0 4px 0;
+  padding: 4px 0;
+}
+
+.sequence-wrapper .mat-input-container {
+  width: 100%
 }
 
 .sequence-wrapper .ui-inputtext:focus {

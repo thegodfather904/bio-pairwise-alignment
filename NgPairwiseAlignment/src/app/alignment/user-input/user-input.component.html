@@ -1,16 +1,17 @@
 <div class="user-input-cntr">
   <div class="sequence-cntr">
     <div class="sequence-wrapper">
-      <label for="sequence1">Sequence 1</label>
-      <input id="sequence1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength"
-      (keyup)="seq1InputChange()">
+      <mat-form-field>
+        <input matInput placeholder="Sequence 1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength" (keyup)="seq1InputChange()">
+      </mat-form-field>
       <div class="chars-left">
         {{ seq1CharsUsed }} / {{ maxSequenceLength }} chars
       </div>
     </div>
     <div class="sequence-wrapper">
-      <label for="sequence2">Sequence 2</label>
-      <input id="sequence2" [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
+      <mat-form-field>
+        <input matInput placeholder="Sequence 2" [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
+      </mat-form-field>
       <div class="chars-left">
         {{ seq2CharsUsed }} / {{ maxSequenceLength }} chars
       </div>
