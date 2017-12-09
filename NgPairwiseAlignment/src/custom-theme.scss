@@ -1,0 +1,7 @@
+@import '~@angular/material/theming';
+
+/* Overriding default 'Robobo' typography */
+$custom-typography: mat-typography-config(
+  $font-family: 'Ubuntu'
+);
+@include angular-material-typography($custom-typography);

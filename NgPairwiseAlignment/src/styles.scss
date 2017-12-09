@@ -1,9 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
- 
+
+@import "./custom-theme.scss";
+
  html,
  body {
    margin: 0;
