@@ -11,7 +11,7 @@ import { DovetailAlignment } from '../shared/dovetail-alignment.model';
 @Component({
   selector: 'app-alignment',
   templateUrl: './alignment.component.html',
-  styleUrls: ['./alignment.component.css']
+  styleUrls: ['./alignment.component.scss']
 })
 export class AlignmentComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { VisualizerData } from '../../shared/visualizer-data.model';
 @Component({
   selector: 'app-visualizer',
   templateUrl: './visualizer.component.html',
-  styleUrls: ['./visualizer.component.css']
+  styleUrls: ['./visualizer.component.scss']
 })
 export class VisualizerComponent implements OnInit {
 
