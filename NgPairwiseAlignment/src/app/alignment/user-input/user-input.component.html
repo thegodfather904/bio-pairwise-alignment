@@ -1,48 +1,57 @@
 <div class="user-input-cntr">
-  <div class="sequence-cntr">
-    <div class="sequence-wrapper">
-      <mat-form-field>
-        <input matInput placeholder="Sequence 1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength" (keyup)="seq1InputChange()">
-      </mat-form-field>
-      <div class="chars-left">
-        {{ seq1CharsUsed }} / {{ maxSequenceLength }} chars
-      </div>
-    </div>
-    <div class="sequence-wrapper">
-      <mat-form-field>
-        <input matInput placeholder="Sequence 2" [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
-      </mat-form-field>
-      <div class="chars-left">
-        {{ seq2CharsUsed }} / {{ maxSequenceLength }} chars
-      </div>
-    </div>
-  </div>
 
-  <!--<p-fieldset legend="Additional Options" [toggleable]="true" [collapsed]="true" styleClass="more-options">
-    <div class="fieldset-inner">
-      <div class="option">
-        <label for="alignmentType">Alignment Type</label>
-        <p-dropdown id="alignmentType" [options]="alignmentOptions" [(ngModel)]="userInput.alignmentType"></p-dropdown>
+  <mat-tab-group>
+    <mat-tab label="Sequences">
+      <div class="sequence-cntr">
+        <div class="sequence-wrapper">
+          <mat-form-field>
+            <input matInput placeholder="Sequence 1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength" (keyup)="seq1InputChange()">
+          </mat-form-field>
+          <div class="chars-left">
+            {{ seq1CharsUsed }} / {{ maxSequenceLength }} chars
+          </div>
+        </div>
+        <div class="sequence-wrapper">
+          <mat-form-field>
+            <input matInput placeholder="Sequence 2" [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
+          </mat-form-field>
+          <div class="chars-left">
+            {{ seq2CharsUsed }} / {{ maxSequenceLength }} chars
+          </div>
+        </div>
       </div>
-      <div class="option">
-        <label for="sequenceMatch">Sequence Match</label>
-        <input id="sequenceMatch" type="number" pInputText [(ngModel)]="userInput.seqMatch">
-      </div>
-      <div class="option">
-        <label for="sequenceMismatch">Sequence Mismatch</label>
-        <input id="sequenceMismatch" type="number" pInputText [(ngModel)]="userInput.seqMismatch">
-      </div>
-      <div class="option">
-        <label for="gapPenalty">Gap Penalty</label>
-        <input id="gapPenalty" type="number" pInputText [(ngModel)]="userInput.gapPenalty">
-      </div>
-      <div class="option">
-        <label for="bandedMin">Banded Minimum</label>
-        <input id="bandedMin" type="number" pInputText [(ngModel)]="userInput.bandedAlignmentMax">
-      </div>
-    </div>
+    </mat-tab>
+    <mat-tab label="Addtl. Options">
+      <div class="fieldset-inner">
+        <div class="option">
+          <label for="alignmentType">Alignment Type</label>
+          <!--<p-dropdown id="alignmentType" [options]="alignmentOptions" [(ngModel)]="userInput.alignmentType"></p-dropdown>-->
+        </div>
+        <div class="option">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Sequence Match" [(ngModel)]="userInput.seqMatch">
+          </mat-form-field>
+        </div>
+        <div class="option">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Sequence Mismatch" [(ngModel)]="userInput.seqMismatch">
+          </mat-form-field>
+        </div>
+        <div class="option">
 
-  </p-fieldset>-->
+          <mat-form-field>
+            <input matInput type="number" placeholder="Gap Penalty" [(ngModel)]="userInput.gapPenalty">
+          </mat-form-field>
+        </div>
+
+        <div class="option">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Banded Minimum" [(ngModel)]="userInput.bandedAlignmentMax">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 
   <div class="align-wrapper">
     <button mat-raised-button type="button" color="primary" (click)="onAlignSequences()">Align</button>
