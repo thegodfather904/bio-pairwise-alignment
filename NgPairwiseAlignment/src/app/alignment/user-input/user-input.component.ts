@@ -1,6 +1,7 @@
+import { AlignmentOptions } from './../../shared/alignment-options.enum';
+import { GlobalAlignment } from './../../shared/globa-alignment.model';
 import { UserInput } from './../../shared/userInput.model';
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
-import { AlignmentOptions } from '../../shared/alignment-options.enum';
 
 @Component({
   selector: 'app-user-input',
@@ -14,7 +15,7 @@ export class UserInputComponent implements OnInit {
   userInput = new UserInput();
   seq1CharsUsed = 0;
   seq2CharsUsed = 0;
-  // alignmentOptions: SelectItem[];
+  alignmentOptions: string[];
 
   @Output()
   alignSequences = new EventEmitter<UserInput>();
@@ -29,12 +30,11 @@ export class UserInputComponent implements OnInit {
   ngOnInit() {}
 
   buildAlignmentOptionsList() {
-    /* this.alignmentOptions = [
-      {label: AlignmentOptions.GLOBAL, value: AlignmentOptions.GLOBAL},
-      {label: AlignmentOptions.LOCAL, value: AlignmentOptions.LOCAL},
-      {label: AlignmentOptions.DOVETAIL, value: AlignmentOptions.DOVETAIL},
-      {label: AlignmentOptions.BANDED, value: AlignmentOptions.BANDED}
-    ];*/
+     this.alignmentOptions = new Array<string>();
+     this.alignmentOptions.push(AlignmentOptions.GLOBAL);
+     this.alignmentOptions.push(AlignmentOptions.LOCAL);
+     this.alignmentOptions.push(AlignmentOptions.DOVETAIL);
+     this.alignmentOptions.push(AlignmentOptions.BANDED);
   }
 
   onAlignSequences() {

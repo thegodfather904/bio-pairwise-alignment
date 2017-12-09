@@ -2,15 +2,10 @@
   overflow: hidden;
 }
 
-label {
-  display: block;
-  padding: 8px 0;
-}
-
 .sequence-wrapper {
   width: 50%;
   float: left;
-  padding: 12px;
+  padding: 0 12px;
 }
 
 .chars-left {
@@ -22,11 +17,11 @@ label {
   overflow: hidden;
 }
 
-.sequence-cntr .sequence-wrapper:first-child {
+.tabs-inner .sequence-wrapper:first-child {
   padding-left: 0;
 }
 
-.sequence-cntr .sequence-wrapper:last-child {
+.tabs-inner .sequence-wrapper:last-child {
   padding-right: 0;
 }
 
@@ -41,8 +36,10 @@ label {
   width: 100%
 }
 
-.sequence-wrapper .ui-inputtext:focus {
-  box-shadow: none;
+.tabs-inner {
+  min-height: 140px;
+  overflow: hidden;
+  padding: 12px 0;
 }
 
 .align-wrapper {
@@ -61,31 +58,8 @@ label {
   margin-right: 0;
 } 
 
-.more-options {
-  padding: 0;
-}
-
-fieldset.more-options {
-  margin: 0 0 20px 0;
-  border: none;
-  padding-bottom: 12px;
-  margin-top: 16px;
-}
-
-.more-options legend {
-  border: none;
-}
-
-.more-options .ui-fieldset-legend a {
-  text-decoration: none;
-  padding: 8px 0;
-}
-
 .option {
   float: left;
-  padding-right: 50px;
-}
-
-.fieldset-inner {
-  padding: 0 18px 0 18px;
+  width: 20%;
+  padding-top: 26px;
 }

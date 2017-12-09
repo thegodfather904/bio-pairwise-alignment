@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatTabsModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatButtonModule, MatTabsModule,
+MatSelectModule, MatOptionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -25,7 +26,9 @@ import { VisualizerComponent } from './alignment/visualizer/visualizer.component
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

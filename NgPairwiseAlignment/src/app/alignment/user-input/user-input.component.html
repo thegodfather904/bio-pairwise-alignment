@@ -1,8 +1,7 @@
 <div class="user-input-cntr">
-
   <mat-tab-group>
     <mat-tab label="Sequences">
-      <div class="sequence-cntr">
+      <div class="tabs-inner">
         <div class="sequence-wrapper">
           <mat-form-field>
             <input matInput placeholder="Sequence 1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength" (keyup)="seq1InputChange()">
@@ -22,10 +21,15 @@
       </div>
     </mat-tab>
     <mat-tab label="Addtl. Options">
-      <div class="fieldset-inner">
+      <div class="tabs-inner">
         <div class="option">
-          <label for="alignmentType">Alignment Type</label>
-          <!--<p-dropdown id="alignmentType" [options]="alignmentOptions" [(ngModel)]="userInput.alignmentType"></p-dropdown>-->
+          <mat-form-field>
+            <mat-select placeholder="Alignment Type" [(value)]="userInput.alignmentType">
+              <mat-option *ngFor="let option of alignmentOptions" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div class="option">
           <mat-form-field>
