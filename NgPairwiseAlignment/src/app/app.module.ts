@@ -2,12 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ButtonModule, InputTextarea} from 'primeng/primeng';
-import {InputTextareaModule} from 'primeng/primeng';
-import {FieldsetModule} from 'primeng/primeng';
-import {DropdownModule} from 'primeng/primeng';
-import {InputTextModule} from 'primeng/primeng';
-
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -26,12 +20,7 @@ import { VisualizerComponent } from './alignment/visualizer/visualizer.component
   imports: [
     BrowserModule,
     FormsModule,
-    BrowserAnimationsModule,
-    ButtonModule,
-    InputTextareaModule,
-    FieldsetModule,
-    DropdownModule,
-    InputTextModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

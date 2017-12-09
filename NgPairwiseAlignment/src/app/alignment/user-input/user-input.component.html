@@ -2,7 +2,7 @@
   <div class="sequence-cntr">
     <div class="sequence-wrapper">
       <label for="sequence1">Sequence 1</label>
-      <input id="sequence1" pInputText [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength"
+      <input id="sequence1" [(ngModel)]="userInput.sequence1" [maxLength]="maxSequenceLength"
       (keyup)="seq1InputChange()">
       <div class="chars-left">
         {{ seq1CharsUsed }} / {{ maxSequenceLength }} chars
@@ -10,14 +10,14 @@
     </div>
     <div class="sequence-wrapper">
       <label for="sequence2">Sequence 2</label>
-      <input id="sequence2" pInputText [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
+      <input id="sequence2" [(ngModel)]="userInput.sequence2" [maxLength]="maxSequenceLength" (keyup)="seq2InputChange()">
       <div class="chars-left">
         {{ seq2CharsUsed }} / {{ maxSequenceLength }} chars
       </div>
     </div>
   </div>
 
-  <p-fieldset legend="Additional Options" [toggleable]="true" [collapsed]="true" styleClass="more-options">
+  <!--<p-fieldset legend="Additional Options" [toggleable]="true" [collapsed]="true" styleClass="more-options">
     <div class="fieldset-inner">
       <div class="option">
         <label for="alignmentType">Alignment Type</label>
@@ -41,11 +41,11 @@
       </div>
     </div>
 
-  </p-fieldset>
+  </p-fieldset>-->
 
   <div class="align-wrapper">
-    <button pButton type="button" label="Align" (click)="onAlignSequences()"></button>
-    <button pButton type="button" label="Reset" (click)="onReset()" class="ui-button-secondary"></button>
+    <button type="button" label="Align" (click)="onAlignSequences()"></button>
+    <button type="button" label="Reset" (click)="onReset()" class="ui-button-secondary"></button>
   </div>
 
 </div>

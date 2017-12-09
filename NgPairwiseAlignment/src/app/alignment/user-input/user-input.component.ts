@@ -1,6 +1,5 @@
 import { UserInput } from './../../shared/userInput.model';
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
-import { SelectItem } from 'primeng/primeng';
 import { AlignmentOptions } from '../../shared/alignment-options.enum';
 
 @Component({
@@ -15,7 +14,7 @@ export class UserInputComponent implements OnInit {
   userInput = new UserInput();
   seq1CharsUsed = 0;
   seq2CharsUsed = 0;
-  alignmentOptions: SelectItem[];
+  // alignmentOptions: SelectItem[];
 
   @Output()
   alignSequences = new EventEmitter<UserInput>();
@@ -30,12 +29,12 @@ export class UserInputComponent implements OnInit {
   ngOnInit() {}
 
   buildAlignmentOptionsList() {
-    this.alignmentOptions = [
+    /* this.alignmentOptions = [
       {label: AlignmentOptions.GLOBAL, value: AlignmentOptions.GLOBAL},
       {label: AlignmentOptions.LOCAL, value: AlignmentOptions.LOCAL},
       {label: AlignmentOptions.DOVETAIL, value: AlignmentOptions.DOVETAIL},
       {label: AlignmentOptions.BANDED, value: AlignmentOptions.BANDED}
-    ];
+    ];*/
   }
 
   onAlignSequences() {
