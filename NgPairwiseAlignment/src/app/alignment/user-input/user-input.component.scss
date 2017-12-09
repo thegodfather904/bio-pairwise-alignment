@@ -48,25 +48,18 @@ label {
 .align-wrapper {
   float: right;
   width: 300px;
+  padding: 2px 0;
 }
 
-.align-wrapper .ui-widget.ui-button {
+.align-wrapper button {
   width: 40%;
   margin: 0 5%;
-  height: 42px;
   float: right;
 }
 
-.align-wrapper .ui-widget.ui-button:first-child {
+.align-wrapper button:first-child {
   margin-right: 0;
 } 
-
-/*
-.align-wrapper .ui-widget.ui-button:enabled:hover {
-  opacity: 1;
-  background-color: #1abc9c;
-  border: 1px solid #1abc9c;
-}*/
 
 .more-options {
   padding: 0;
