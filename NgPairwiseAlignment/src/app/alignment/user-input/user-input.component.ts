@@ -1,13 +1,12 @@
 import { AlignmentOptions } from './../../shared/alignment-options.enum';
 import { GlobalAlignment } from './../../shared/globa-alignment.model';
 import { UserInput } from './../../shared/userInput.model';
-import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user-input',
   templateUrl: './user-input.component.html',
-  styleUrls: ['./user-input.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./user-input.component.scss']
 })
 export class UserInputComponent implements OnInit {
 
