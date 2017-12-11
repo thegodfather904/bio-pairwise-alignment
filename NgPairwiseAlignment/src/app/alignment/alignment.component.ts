@@ -1,3 +1,4 @@
+import { SequenceBarComponent } from './sequence-bar/sequence-bar.component';
 import { AlignmentOptions } from './../shared/alignment-options.enum';
 import { GlobalAlignment } from './../shared/globa-alignment.model';
 import { MatrixElement } from './../shared/matrix-element.model';
@@ -7,6 +8,7 @@ import { VisualizerData } from '../shared/visualizer-data.model';
 import { LocalAlignment } from '../shared/local-alignment.model';
 import { BandedGlobalAlignment } from '../shared/banded-alignment.model';
 import { DovetailAlignment } from '../shared/dovetail-alignment.model';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-alignment',
@@ -18,7 +20,7 @@ export class AlignmentComponent implements OnInit {
   visualizerData = new VisualizerData();
   alignSequenceClicked = false;
 
-  constructor() {}
+  constructor(public snackBar: MatSnackBar) {}
 
   ngOnInit() {}
 
@@ -44,6 +46,17 @@ export class AlignmentComponent implements OnInit {
     this.visualizerData = vd;
 
     this.alignSequenceClicked = true;
+
+    this.openSnackBar(userInput.sequence1, userInput.sequence2);
+  }
+
+  openSnackBar(seq1: string, seq2: string) {
+    const snackBarRef = this.snackBar.openFromComponent(SequenceBarComponent, {
+      data: {
+        sequence1: seq1,
+        sequence2: seq2
+      }
+    });
   }
 
   onResetAlignment() {

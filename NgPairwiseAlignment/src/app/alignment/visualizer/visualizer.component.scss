@@ -1,3 +1,5 @@
+@import "../../../color-palette.scss";
+
 .visualizer-cntr {
   overflow: hidden;
   margin-top: 72px;
@@ -27,7 +29,7 @@
 .card-stripe {
   float: left;
   height: 100%;
-  background-color: #2399e5;
+  background-color: $primary-blue;
   width: 50px;
   position: absolute;
   text-align: center;
@@ -112,8 +114,8 @@
 }
 
 .matrix-element.in-alignment {
-  background-color: #2399e5;
-  border: 1px solid #2399e5;
+  background-color: $primary-blue;
+  border: 1px solid $primary-blue;
   color: #fff;
 }
 
