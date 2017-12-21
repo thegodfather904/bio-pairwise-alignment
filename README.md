@@ -23,7 +23,7 @@ ng serve
 
 * [Angular](https://angular.io/) - Web framework used 
 * [Angular-cli](https://cli.angular.io/) - Project built with 
-* [PrimeNG](https://www.primefaces.org/primeng/#/) - UI Framework
+* [Angular Material](https://material.angular.io/) - UI Framework
 * [NodeJS](https://nodejs.org/en/) - Served with 
 
 ## Authors
