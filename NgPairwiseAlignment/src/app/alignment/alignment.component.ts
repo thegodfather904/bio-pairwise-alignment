@@ -62,6 +62,7 @@ export class AlignmentComponent implements OnInit {
   onResetAlignment() {
     this.visualizerData = new VisualizerData();
     this.alignSequenceClicked = false;
+    this.snackBar.dismiss();
   }
 
   /* Width = 100% divided by length of sequence 1 + 2 (to account for the first stuff added)*/
