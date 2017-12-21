@@ -3,20 +3,24 @@
     top: 50%;
     transform: translateY(-50%);
     right: 0;
+    background-color: #03A9F4;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: -2px 0px 2px 0px rgba(0,0,0,.3);
 }
 
 .footer-item {
     width: 56px;
-    padding-bottom: 20px;
+    padding: 10px 0;
 }
 
 .footer-item a {
-    color: #57595b;
+    color: #fff;
     text-decoration: none;
 }
 
 .footer-item a:hover {
-    color: #03a9f4;
+    color: #607d8b;
 }
 
 .footer-item span {
