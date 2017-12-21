@@ -1,0 +1,35 @@
+.footer {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.footer-item {
+    width: 56px;
+    padding-bottom: 20px;
+}
+
+.footer-item a {
+    color: #57595b;
+    text-decoration: none;
+}
+
+.footer-item a:hover {
+    color: #03a9f4;
+}
+
+.footer-item span {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    display: none;
+}
+
+.footer-item i {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+}

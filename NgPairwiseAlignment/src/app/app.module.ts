@@ -11,6 +11,7 @@ import { AlignmentComponent } from './alignment/alignment.component';
 import { UserInputComponent } from './alignment/user-input/user-input.component';
 import { VisualizerComponent } from './alignment/visualizer/visualizer.component';
 import { SequenceBarComponent } from './alignment/sequence-bar/sequence-bar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SequenceBarComponent } from './alignment/sequence-bar/sequence-bar.comp
     AlignmentComponent,
     UserInputComponent,
     VisualizerComponent,
-    SequenceBarComponent
+    SequenceBarComponent,
+    FooterComponent
   ],
   entryComponents: [SequenceBarComponent],
   imports: [
